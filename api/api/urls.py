@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from . import views as api
+from weather import views as weather
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('api/', api.index),
+    path('api/weather/', weather.index)
 ]
