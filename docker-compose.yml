@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  postgres-docker:
+    build:
+      context: .
+      dockerfile: Dockerfile.postgress
+    container-name: weather.bd
+    image: db
+    ports:
+      -5432:5432
+
+  django-docker:
+    build:
+      context: .
+      dockerfile: Dockerfile.django
+    container_name: weather.api
+    image: api
+    ports:
+      - 8000:8000
+
+  webapp-docker:
+    build:
+      context: .
+      dockerfile: Dockerfile.react
+    container_name: weather.app
+    image: app
+    ports:
+      - 3000:3000
